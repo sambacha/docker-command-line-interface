@@ -1,0 +1,22 @@
+# travis-ci
+os: linux
+dist: xenial
+
+language: shell
+
+env:
+  - BASHVER= SHELLCHECK=true
+  - BASHVER=3.2
+  - BASHVER=4.0
+  - BASHVER=4.1
+  - BASHVER=4.2
+  - BASHVER=4.3
+  - BASHVER=4.4
+  - BASHVER=5
+
+script:
+  - bash -c 'shopt -s globstar nullglob; shellcheck **/*.{sh,ksh,bash}'
+
+notifications:
+  email:
+    on_success: never
